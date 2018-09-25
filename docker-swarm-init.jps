@@ -1,0 +1,32 @@
+{
+    "jpsType": "update",
+    "id": "docker-swarm-init",
+    "name": "Docker Swarm Init",
+    "onInstall": [{
+        "log": "Swarm Init"
+    }, {
+        "if ('${nodes.cp.master.extIPs[0]}' == '${nodes.cp.master'+'.extIPs[0]}')": {
+            "swarmInit": {
+                "address": ""
+            }
+        },
+        "if ('${nodes.cp.master.extIPs[0]}' != '${nodes.cp.master'+'.extIPs[0]}')": {
+            "swarmInit": {
+                "address": "--advertise-addr ${nodes.cp.master.extIPs[0]}"
+            }
+        },
+        "if ('${nodes.cp.master.intIPs[0]}' != '${nodes.cp.master'+'.intIPs[0]}')": {
+            "swarmInit": {
+                "address": "--advertise-addr ${nodes.cp.master.extIPs[0]}"
+            }
+        }
+    }],
+    "actions": {
+        "swarmInit": {
+            "cmd[${nodes.cp.master.id}]": [
+                "docker swarm leave --force &>> /var/log/run.log",
+                "docker swarm init ${this.address} >> /var/log/run.log"
+            ]
+        }
+    }
+}
