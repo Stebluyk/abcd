@@ -7,7 +7,7 @@
     }, {
         "if ('${nodes.cp.master.extIPs[0]}' == '${nodes.cp.master'+'.extIPs[0]}')": {
             "swarmInit": {
-                "address": "--advertise-addr ${nodes.cp.master.intIP[0]}",
+                "address": "--advertise-addr ${nodes.cp.master.intIP}",
                 "cmd[${nodes.cp.master.id}]":
                     "echo ${nodes.cp.master.intIP[0]}\n\n\n\n\n\n\n"
             }
