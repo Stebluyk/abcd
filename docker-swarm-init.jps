@@ -5,11 +5,6 @@
     "onInstall": [{
         "log": "Swarm Init"
     }, {
-        "if ('${nodes.cp.master.extIPs[0]}' == '${nodes.cp.master'+'.extIPs[0]}')": {
-            "swarmInit": {
-                "address": ""
-            }
-        },
         "if ('${nodes.cp.master.extIPs[0]}' != '${nodes.cp.master'+'.extIPs[0]}')": {
             "swarmInit": {
                 "address": "--advertise-addr ${nodes.cp.master.extIPs[0]}"
