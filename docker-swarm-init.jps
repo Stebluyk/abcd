@@ -12,8 +12,8 @@
         },
         "else": {
             "swarmInit": {
-                "address": "--advertise-addr ${nodes.cp.master.intIP[0]}"
-                "cmd[${nodes.cp.master.id}]:
+                "address": "--advertise-addr ${nodes.cp.master.intIP[0]}",
+                "cmd[${nodes.cp.master.id}]":
                     "echo ${nodes.cp.master.intIP[0]}\n\n\n\n\n\n\n"
             }
         }
