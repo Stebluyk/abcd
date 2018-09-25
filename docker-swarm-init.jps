@@ -12,7 +12,7 @@
         },
         "if ('${nodes.cp.master.intIPs[0]}' != '${nodes.cp.master'+'.intIPs[0]}')": {
             "swarmInit": {
-                "address": "--advertise-addr ${nodes.cp.master.extIPs[0]}"
+                "address": "--advertise-addr ${nodes.cp.master.intIPs[0]}"
             }
         }
     }],
