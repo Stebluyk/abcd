@@ -15,7 +15,7 @@ p = {
     type: "git",
     url: url,
     branch: branch,
-    login: "user",
+    login: user,
     password: token,
     keyId: null,
     context: contexts[0],
